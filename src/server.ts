@@ -47,15 +47,19 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
     //Image processing
       const filteredImage:string =await filterImageFromURL(image_url);
       console.log(filteredImage);
+      res.status(200).sendFile(filteredImage, () => {
+        deleteLocalFiles([filteredImage])
+      });
+      /*
       if(filteredImage===undefined||filteredImage===null)
         return res.status(401).send(`Unable to filter image`);
       else{ 
         res.status(200).sendFile(filteredImage, () => {
           deleteLocalFiles([filteredImage])
-        });
-
-      
+        });   
     }
+    */
+    
   }
    
    })
