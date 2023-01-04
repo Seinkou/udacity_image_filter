@@ -49,14 +49,14 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
       console.log(filteredImage);
       if(filteredImage===undefined||filteredImage===null)
         return res.status(401).send(`Unable to filter image`);
-      else{
+      else{ 
         res.status(200).sendFile(filteredImage, () => {
           deleteLocalFiles([filteredImage])
         });
 
-      }
+      
     }
-    
+  }
    
    })
   //! END @TODO1
