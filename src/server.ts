@@ -44,7 +44,7 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
     if(valid_url == null)
       res.status(401).send(`Inavlid url! please Check URL again`);
     else{
-    //Process Image
+    //Image processing
       const filteredImage:string =await filterImageFromURL(image_url);
       console.log(filteredImage);
       if(filteredImage===undefined||filteredImage===null)
@@ -74,3 +74,8 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
       console.log( `press CTRL+C to stop server` );
   } );
 })();
+
+/*
+  Reference : https://snyk.io/blog/secure-javascript-url-validation/#:~:text=Another%20way%20to%20validate%20a,)%20%7B%20var%20res%20%3D%20string.
+            : https://github.com/mshivam76/image-filter-starter-code/blob/master/src/server.ts
+*/
